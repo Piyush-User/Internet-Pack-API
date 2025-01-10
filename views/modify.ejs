@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+    <div class="container">
+
+        <h1 class="h1_modify"><%= heading %></h1>
+        
+        <% if(locals.post){ %>
+            <div class="modify-container">
+                <form id="editForm" method="post" action="/api/posts/<%= post.id %>">
+                    <input type="text" name="title" value="<%= post.title %>">
+                    <textarea name="content" rows="10"><%= post.content %></textarea>
+                    <input type="text" name="amountData" value="<%= post.amount %>">
+    
+                    <button class="full-width" type="submit"><%= submit %></button>
+                </form>
+            </div>
+        <% }else{ %>
+            <div class="modify-container">
+                <form id="newPostForm" method="post" action="/api/posts">
+                    <input type="text" name="title" placeholder="Title" required>
+                    <textarea name="content" placeholder="Content" required rows="10"></textarea>
+                    <input type="text" name="amountData" placeholder="Amount" required>
+    
+                    <button class="full-width" type="submit"><%= submit %></button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

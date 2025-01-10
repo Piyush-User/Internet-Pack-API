@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="left">
+            <img src="/img/photo3.jpg" alt="logo">
+            <h2>Internet Plan API</h2>
+        </div>
+        <div class="right">
+            <button><a id="newPostBtn" href="/new">New Post</a></button>
+        </div>
+    </div>
+
+    <ul class="main-contain">
+        <% posts.forEach(post => { %>
+            <li>
+                <section>
+                    <div class="card">
+                        <img class="img1" src="/img/photo1.png" alt="alter">
+                        <h3>
+                            <%= post.title %>
+                        </h3>
+                        <p class="para1">
+                            <%= post.content %>
+                        </p>
+                        <div class="amount">
+                            <img src="/img/photo2.webp" alt="alt">
+                            <div>
+                                <p>Annual/Monthly Plan</p>
+                                <p>
+                                    <%= post.amountData %>
+                                </p>
+                            </div>
+                        </div>
+                        <button>Buy Plan</button>
+                        <div class="anchor_div">
+                            <a class="edit" href="/edit/<%= post.id %>">Edit</a>
+                            <a class="delete" href="/api/posts/delete/<%= post.id %>">Delete</a>
+                        </div>
+                    </div>
+                </section>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>
